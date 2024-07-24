@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 from faker import Faker
 import random
@@ -70,9 +69,10 @@ for _ in range(20):  # Let's say we have 20 promotions throughout the year
         "items": promo_items
     })
 
-for _ in range(5000):  # Increased to 5000 for more data points
-    date = fake.date_between(start_date=start_date, end_date=end_date)
-
+# Generate data for each day
+current_date = start_date
+while current_date <= end_date:
+    # Generate daily weather data
     temperature = round(random.uniform(10, 35), 1)
     precipitation = round(random.uniform(0, 20), 1)
     weather_condition = random.choice(weather_conditions)
@@ -81,13 +81,13 @@ for _ in range(5000):  # Increased to 5000 for more data points
     # Events (30% chance that there is an event)
     if random.random() < 0.3:
         event_location = fake.city()
-        event_date = fake.date_between(start_date=date, end_date=date + timedelta(days=30))
+        event_date = fake.date_between(start_date=current_date, end_date=current_date + timedelta(days=30))
         event_type = random.choice(event_types)
     else:
         event_location = event_date = event_type = None
 
     # Check if there's an active promotion
-    active_promos = [p for p in promotions if p["start"] <= date <= p["end"]]
+    active_promos = [p for p in promotions if p["start"] <= current_date <= p["end"]]
     if active_promos:
         promo = random.choice(active_promos)
         promotion_type = promo["type"]
@@ -98,71 +98,74 @@ for _ in range(5000):  # Increased to 5000 for more data points
     else:
         promotion_type = promotion_start_date = promotion_end_date = promotion_discount = promotion_items = None
 
-    # Generate receipt
-    receipt_id = fake.uuid4()
-    items_in_receipt = random.randint(1, 10)
-    receipt_total = 0
+    # Generate multiple sales entries for each day
+    for _ in range(random.randint(10, 50)):  # 10 to 50 sales per day
+        receipt_id = fake.uuid4()
+        items_in_receipt = random.randint(1, 10)
 
-    for _ in range(items_in_receipt):
-        item_sold = random.choice(all_items)
-        quantity_sold = random.randint(1, 5)
-        
-        # Determine the price range based on the item category
-        for category, items in item_categories.items():
-            if item_sold in items:
-                if category in ["Fresh Produce", "Eggs"]:
-                    price_range = (1, 10)
-                elif category in ["Dairy Products", "Bakery Items", "Fresh Juices"]:
-                    price_range = (2, 15)
-                elif category in ["Meat and Seafood", "Deli", "Ready-to-Eat Meals"]:
-                    price_range = (5, 30)
-                break
-        
-        item_price = random.randint(*price_range)
-        
-        # Apply promotion discount if applicable
-        if promotion_items and item_sold in promotion_items.split(", "):
-            item_price = int(item_price * (1 - promotion_discount/100))
-        
-        total_sales_amount = quantity_sold * item_price
-        receipt_total += total_sales_amount
-        
-        item_id = fake.uuid4()
-        current_stock_level = random.randint(50, 500)
-        reorder_point = random.randint(10, 100)
-        lead_time = random.randint(1, 14)
-        
-        # Set expiration date based on item category
-        if category in ["Fresh Produce", "Dairy Products", "Meat and Seafood", "Fresh Juices"]:
-            expiration_date = date + timedelta(days=random.randint(3, 14))
-        elif category in ["Bakery Items", "Deli", "Ready-to-Eat Meals"]:
-            expiration_date = date + timedelta(days=random.randint(1, 7))
-        else:  # Eggs
-            expiration_date = date + timedelta(days=random.randint(21, 35))
+        for _ in range(items_in_receipt):
+            item_sold = random.choice(all_items)
+            quantity_sold = random.randint(1, 5)
+            
+            # Determine the price range based on the item category
+            for category, items in item_categories.items():
+                if item_sold in items:
+                    if category in ["Fresh Produce", "Eggs"]:
+                        price_range = (1, 10)
+                    elif category in ["Dairy Products", "Bakery Items", "Fresh Juices"]:
+                        price_range = (2, 15)
+                    elif category in ["Meat and Seafood", "Deli", "Ready-to-Eat Meals"]:
+                        price_range = (5, 30)
+                    break
+            
+            item_price = random.randint(*price_range)
+            
+            # Apply promotion discount if applicable
+            if promotion_items and item_sold in promotion_items.split(", "):
+                item_price = int(item_price * (1 - promotion_discount/100))
+            
+            total_sales_amount = quantity_sold * item_price
+            
+            item_id = fake.uuid4()
+            current_stock_level = random.randint(50, 500)
+            reorder_point = random.randint(10, 100)
+            lead_time = random.randint(1, 14)
+            
+            # Set expiration date based on item category
+            if category in ["Fresh Produce", "Dairy Products", "Meat and Seafood", "Fresh Juices"]:
+                expiration_date = current_date + timedelta(days=random.randint(3, 14))
+            elif category in ["Bakery Items", "Deli", "Ready-to-Eat Meals"]:
+                expiration_date = current_date + timedelta(days=random.randint(1, 7))
+            else:  # Eggs
+                expiration_date = current_date + timedelta(days=random.randint(21, 35))
 
-        data["Date"].append(date)
-        data["Temperature"].append(temperature)
-        data["Precipitation"].append(precipitation)
-        data["Weather_Conditions"].append(weather_condition)
-        data["Humidity"].append(humidity)
-        data["Event_Location"].append(event_location)
-        data["Event_Date"].append(event_date)
-        data["Event_Type"].append(event_type)
-        data["Promotion_Type"].append(promotion_type)
-        data["Promotion_Start_Date"].append(promotion_start_date)
-        data["Promotion_End_Date"].append(promotion_end_date)
-        data["Promotion_Discount"].append(promotion_discount)
-        data["Promotion_Items"].append(promotion_items)
-        data["Receipt_ID"].append(receipt_id)
-        data["Item_Sold"].append(item_sold)
-        data["Quantity_Sold"].append(quantity_sold)
-        data["Total_Sales_Amount"].append(total_sales_amount)
-        data["Item_ID"].append(item_id)
-        data["Item_Name"].append(item_sold)
-        data["Current_Stock_Level"].append(current_stock_level)
-        data["Reorder_Point"].append(reorder_point)
-        data["Lead_Time"].append(lead_time)
-        data["Expiration_Date"].append(expiration_date)
+            data["Date"].append(current_date)
+            data["Temperature"].append(temperature)
+            data["Precipitation"].append(precipitation)
+            data["Weather_Conditions"].append(weather_condition)
+            data["Humidity"].append(humidity)
+            data["Event_Location"].append(event_location)
+            data["Event_Date"].append(event_date)
+            data["Event_Type"].append(event_type)
+            data["Promotion_Type"].append(promotion_type)
+            data["Promotion_Start_Date"].append(promotion_start_date)
+            data["Promotion_End_Date"].append(promotion_end_date)
+            data["Promotion_Discount"].append(promotion_discount)
+            data["Promotion_Items"].append(promotion_items)
+            data["Receipt_ID"].append(receipt_id)
+            data["Item_Sold"].append(item_sold)
+            data["Quantity_Sold"].append(quantity_sold)
+            data["Total_Sales_Amount"].append(total_sales_amount)
+            data["Item_ID"].append(item_id)
+            data["Item_Name"].append(item_sold)
+            data["Current_Stock_Level"].append(current_stock_level)
+            data["Reorder_Point"].append(reorder_point)
+            data["Lead_Time"].append(lead_time)
+            data["Expiration_Date"].append(expiration_date)
+
+    current_date += timedelta(days=1)
+
+
 
 # Convert the dictionary to a DataFrame
 df = pd.DataFrame(data)
