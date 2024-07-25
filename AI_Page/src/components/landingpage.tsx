@@ -1,33 +1,51 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
-import MenuItem from "./navbar/MenuItem";
+import React, { useCallback, useState, useEffect } from "react";
+import MenuItem from "./navbar/MenuItem"; // Assuming this is used somewhere in your project
 import { useRouter } from "next/navigation";
 import useLoginModal from "@/hooks/useLoginModal";
+import UserMenu from "./navbar/UserMenu";
 
 const LandingPage = () => {
   const router = useRouter();
   const loginModal = useLoginModal();
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Function to toggle the open state of some component, perhaps a menu
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
   }, []);
+
+  // Effect to redirect to the StockStatus page upon logging in
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.push("/StockStatus");
+    }
+  }, [isLoggedIn, router]);
+
+  // Simulated login function, this should be replaced with actual login logic
+  const handleLogin = () => {
+    loginModal.onOpen();
+    toggleOpen();
+    // Simulate a login action
+    setTimeout(() => {
+      setIsLoggedIn(true);
+    }, 2000); // Simulate login delay
+  };
 
   return (
     <div className="w-full bg-green-50 min-h-screen flex flex-col items-center justify-center">
       <div className="w-full py-28 flex flex-col items-center justify-center">
         <h1 className="text-5xl font-bold text-green-700">
           Optimize Your Inventory
-        </h1>   
+        </h1>
         <p className="mt-4 text-lg text-green-600">
           AI-driven solutions for zero food waste
         </p>
         <button
           className="mt-6 px-8 py-3 bg-green-600 text-white rounded-full"
-          onClick={() => {
-            loginModal.onOpen();
-            toggleOpen();
-          }}
+          onClick={handleLogin}
         >
           Get Started
         </button>

@@ -1,6 +1,7 @@
 {
-  "/DynamicPricing/page": "app/DynamicPricing/page.js",
+  "/page": "app/page.js",
   "/PredictiveAnalytics/page": "app/PredictiveAnalytics/page.js",
+  "/Alert/page": "app/Alert/page.js",
   "/StockStatus/page": "app/StockStatus/page.js",
-  "/Alert/page": "app/Alert/page.js"
+  "/DynamicPricing/page": "app/DynamicPricing/page.js"
 }

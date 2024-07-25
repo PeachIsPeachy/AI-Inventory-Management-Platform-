@@ -26,33 +26,65 @@ const DynamicPricingDashboard = () => {
         <div className="grid grid-cols-3 gap-8">
           <div className="col-span-2 bg-white p-6 rounded-lg shadow">
             <h2 className="text-xl font-bold text-black mb-4">
-              Manual Price Adjustment Tool
+              Price Adjustment Tool
             </h2>
             <table className="min-w-full bg-white border">
               <thead className="text-black">
                 <tr>
-                  <th className="py-2 px-4 border-b">Product Name</th>
+                  <th className="py-2 px-4 border-b">Date</th>
+                  <th className="py-2 px-4 border-b">Items</th>
                   <th className="py-2 px-4 border-b">Current Price</th>
                   <th className="py-2 px-4 border-b">Inventory</th>
+                  <th className="py-2 px-4 border-b">Recommended Price</th>
+                  <th className="py-2 px-4 border-b">Reason</th>
                   <th className="py-2 px-4 border-b">Action</th>
                 </tr>
               </thead>
               <tbody className="text-black text-center">
                 {[
-                  { name: "Product 1", price: "$10.00", inventory: 100 },
-                  { name: "Product 2", price: "$20.00", inventory: 200 },
-                  { name: "Product 3", price: "$30.00", inventory: 300 },
+                  {
+                    date: "2024-07-25",
+                    name: "pork",
+                    price: "$10.00",
+                    inventory: 100,
+                    recommendedPrice: "$12.00",
+                    reason: "High demand",
+                  },
+                  {
+                    date: "2024-07-25",
+                    name: "chicken",
+                    price: "$20.00",
+                    inventory: 200,
+                    recommendedPrice: "$18.00",
+                    reason: "Low demand",
+                  },
+                  {
+                    date: "2024-07-25",
+                    name: "beef",
+                    price: "$30.00",
+                    inventory: 300,
+                    recommendedPrice: "$33.00",
+                    reason: "Market trend",
+                  },
                 ].map((product, index) => (
                   <tr key={index}>
+                    <td className="py-2 px-4 border-b">{product.date}</td>
                     <td className="py-2 px-4 border-b">{product.name}</td>
                     <td className="py-2 px-4 border-b">{product.price}</td>
                     <td className="py-2 px-4 border-b">{product.inventory}</td>
                     <td className="py-2 px-4 border-b">
+                      {product.recommendedPrice}
+                    </td>
+                    <td className="py-2 px-4 border-b">{product.reason}</td>
+                    <td className="py-2 px-4 border-b flex items-center justify-center">
                       <input
                         type="text"
-                        className="border rounded px-2 py-1"
+                        className="border rounded px-2 py-1 mr-2"
                         placeholder="New Price"
                       />
+                      <button className="bg-green-600 text-white py-1 px-2 rounded">
+                        Apply
+                      </button>
                     </td>
                   </tr>
                 ))}
@@ -64,7 +96,7 @@ const DynamicPricingDashboard = () => {
             <h2 className="text-xl font-bold text-black mb-4">
               Time Period Selector
             </h2>
-            <div className="flex space-x-4 mb-4 text-gray-400 ">
+            <div className="flex space-x-4 mb-4 text-gray-400">
               <input
                 type="date"
                 className="border rounded-lg px-4 py-2 w-full"
@@ -84,7 +116,7 @@ const DynamicPricingDashboard = () => {
               <thead>
                 <tr className="text-black">
                   <th className="py-2 px-4 border-b">Date</th>
-                  <th className="py-2 px-4 border-b">Product</th>
+                  <th className="py-2 px-4 border-b">Item</th>
                   <th className="py-2 px-4 border-b">Old Price</th>
                   <th className="py-2 px-4 border-b">New Price</th>
                 </tr>
@@ -93,19 +125,19 @@ const DynamicPricingDashboard = () => {
                 {[
                   {
                     date: "2023-10-01",
-                    product: "Product 1",
+                    product: "pork",
                     oldPrice: "$10.00",
                     newPrice: "$12.00",
                   },
                   {
                     date: "2023-10-02",
-                    product: "Product 2",
+                    product: "chicken",
                     oldPrice: "$20.00",
                     newPrice: "$22.00",
                   },
                   {
                     date: "2023-10-03",
-                    product: "Product 3",
+                    product: "beef",
                     oldPrice: "$30.00",
                     newPrice: "$33.00",
                   },
@@ -119,18 +151,6 @@ const DynamicPricingDashboard = () => {
                 ))}
               </tbody>
             </table>
-
-            <h2 className="text-xl font-bold text-black mb-4">
-              Chart of Price Change
-            </h2>
-            <div>
-              {/* Placeholder for the chart */}
-              <img
-                src="/images/price_change_chart.png"
-                alt="Chart of Price Change"
-                className="w-full"
-              />
-            </div>
           </div>
         </div>
       </div>

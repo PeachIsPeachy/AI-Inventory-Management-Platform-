@@ -65,20 +65,6 @@ const Search = () => {
                     "
         >
           <MenuItem
-            label="Predictive Analytics"
-            onClick={() => router.push("/PredictiveAnalytics")}
-          />
-        </div>
-        <div
-          className="
-                        text-m
-                        font-bold
-                        px-6
-                        border-l-[1px]
-                        hover:text-green-600 cursor-pointer
-                    "
-        >
-          <MenuItem
             label="Dynamics Pricing"
             onClick={() => router.push("/DynamicPricing")}
           />

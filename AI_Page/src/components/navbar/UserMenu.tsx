@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useCallback, useRef, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -15,17 +15,15 @@ import Avatar from "../Avatar";
 import useOnClickOutside from "@/hooks/useOnClickOutside";
 
 interface UserMenuProps {
-  currentUser?: SafeUser | null
+  currentUser?: SafeUser | null;
 }
 
-const UserMenu: React.FC<UserMenuProps> = ({
-  currentUser
-}) => {
+const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const router = useRouter();
 
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
-  const rentModal = useRentModal()
+  const rentModal = useRentModal();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -35,23 +33,32 @@ const UserMenu: React.FC<UserMenuProps> = ({
 
   const onRent = useCallback(() => {
     if (!currentUser) {
-      return loginModal.onOpen()
+      return loginModal.onOpen();
     }
 
-    rentModal.onOpen()
-  }, [currentUser, loginModal])
+    rentModal.onOpen();
+  }, [currentUser, loginModal]);
 
   const closeMenu = useCallback(() => {
     setIsOpen(false);
   }, []);
 
+  const navigateToStockStatus = useCallback(() => {
+    if (currentUser) {
+      router.push("http://localhost:3000/StockStatus");
+    }
+  }, [currentUser, router]);
+
   const ref = useRef<HTMLDivElement>(null);
 
-  const toggleButtonRef = useRef<HTMLDivElement>(null)
+  const toggleButtonRef = useRef<HTMLDivElement>(null);
 
   useOnClickOutside(ref, (event) => {
     // Check if the click occurred outside of the modal and not on the toggle button
-    if (!toggleButtonRef.current || !toggleButtonRef.current.contains(event.target as Node)) {
+    if (
+      !toggleButtonRef.current ||
+      !toggleButtonRef.current.contains(event.target as Node)
+    ) {
       closeMenu();
     }
   });
@@ -60,9 +67,9 @@ const UserMenu: React.FC<UserMenuProps> = ({
     <div className="relative">
       <div className="flex flex-row items-center gap-2">
         {currentUser?.role === "USER" ? (
-          <div 
-          onClick={onRent}
-          className="
+          <div
+            onClick={onRent}
+            className="
             hidden
             md:block
             text-sm 
@@ -74,11 +81,11 @@ const UserMenu: React.FC<UserMenuProps> = ({
             transition 
             cursor-pointer
           "
-        >
-          Are you a business owner?
-        </div>
-        ) : ( 
-          <div 
+          >
+            Are you a business owner?
+          </div>
+        ) : (
+          <div
             onClick={() => router.push(`/companies/${currentUser?.companyId}`)}
             className="
               hidden
@@ -95,10 +102,10 @@ const UserMenu: React.FC<UserMenuProps> = ({
           >
             My company
           </div>
-      )}
-        <div 
-        onClick={toggleOpen}
-        className="
+        )}
+        <div
+          onClick={toggleOpen}
+          className="
           p-4
           md:py-1
           md:px-2
@@ -141,14 +148,15 @@ const UserMenu: React.FC<UserMenuProps> = ({
             {currentUser ? (
               <>
                 <MenuItem
+                  label="Stock Status"
+                  onClick={navigateToStockStatus}
+                />
+                <MenuItem
                   label="My profile"
-                  onClick={() => router.push('/myprofile')}
+                  onClick={() => router.push("/myprofile")}
                 />
                 <hr />
-                <MenuItem
-                  label="Sign out"
-                  onClick={() => signOut()}
-                />
+                <MenuItem label="Sign out" onClick={() => signOut()} />
               </>
             ) : (
               <>
@@ -173,6 +181,6 @@ const UserMenu: React.FC<UserMenuProps> = ({
       )}
     </div>
   );
-}
+};
 
 export default UserMenu;

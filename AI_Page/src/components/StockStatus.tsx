@@ -33,11 +33,11 @@ const StockStatus = () => {
             <table className="w-full bg-white rounded-lg shadow overflow-hidden">
               <thead className="bg-gray-200 text-black text-center">
                 <tr>
-                  <th className="py-3 px-4 ">Item</th>
-                  <th className="py-3 px-4 ">Status</th>
-                  <th className="py-3 px-4 ">Current Stock</th>
-                  <th className="py-3 px-4 ">Recommended Stock</th>
-                  <th className="py-3 px-4 ">Action</th>
+                  <th className="py-3 px-4">Item</th>
+                  <th className="py-3 px-4">Status</th>
+                  <th className="py-3 px-4">Current Stock</th>
+                  <th className="py-3 px-4">Recommended Stock</th>
+                  <th className="py-3 px-4">Action</th>
                 </tr>
               </thead>
               <tbody className="text-gray-700 text-center">
@@ -45,26 +45,25 @@ const StockStatus = () => {
                   ["Milk", "Low stock", "20", "35", "Environm"],
                   ["Chicken", "Low stock", "25", "36", "Reducing"],
                   ["Pastries", "Over stock", "34", "25", "Inventory"],
-                  [
-                    "Beef",
-                    "Low stock",
-                    "45",
-                    "60",
-                    "Inventory",
-                  ],
+                  ["Beef", "Low stock", "45", "60", "Inventory"],
                   ["Yogurt", "Over stock", "60", "30", "Data"],
                   ["Avocado", "Low stock", "10", "30", "Search"],
-                  [
-                    "Pork",
-                    "Low stock",
-                    "80",
-                    "100",
-                    "Revolutio",
-                  ],
+                  ["Pork", "Low stock", "80", "100", "Revolutio"],
                 ].map((row, index) => (
                   <tr key={index} className="border-t">
                     {row.map((cell, i) => (
-                      <td key={i} className="py-3 px-4">
+                      <td
+                        key={i}
+                        className={`py-3 px-4 ${
+                          i === 1
+                            ? cell === "Low stock"
+                              ? "text-green-500"
+                              : cell === "Over stock"
+                              ? "text-red-500"
+                              : ""
+                            : ""
+                        }`}
+                      >
                         {cell}
                       </td>
                     ))}
@@ -76,7 +75,7 @@ const StockStatus = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
               <div className="bg-white p-6 rounded-lg shadow">
                 <h2 className="text-xl font-bold mb-4 text-black">
-                  Food Category trend insight
+                  Food Category Trend Insight
                 </h2>
                 <div className="h-48 bg-gray-100 rounded-lg"></div>
               </div>

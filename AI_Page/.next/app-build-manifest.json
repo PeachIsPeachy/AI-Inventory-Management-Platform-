@@ -11,25 +11,25 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+    "/Alert/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/Alert/page.js"
+    ],
     "/PredictiveAnalytics/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/PredictiveAnalytics/page.js"
-    ],
-    "/DynamicPricing/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/DynamicPricing/page.js"
     ],
     "/StockStatus/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/StockStatus/page.js"
     ],
-    "/Alert/page": [
+    "/DynamicPricing/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/Alert/page.js"
+      "static/chunks/app/DynamicPricing/page.js"
     ]
   }
 }
