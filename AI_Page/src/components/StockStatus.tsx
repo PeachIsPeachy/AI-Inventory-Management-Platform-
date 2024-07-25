@@ -30,33 +30,17 @@ const StockStatus = () => {
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           <div className="lg:col-span-3">
-            <div className="flex space-x-4 mb-4">
-              <button className="bg-green-600 text-white py-2 px-4 rounded-full">
-                Restock Now
-              </button>
-              <button className="bg-green-600 text-white py-2 px-4 rounded-full">
-                Stock
-              </button>
-              <button className="bg-green-600 text-white py-2 px-4 rounded-full">
-                Alerts
-              </button>
-              <button className="bg-green-600 text-white py-2 px-4 rounded-full">
-                Analytics
-              </button>
-            </div>
-
             <table className="w-full bg-white rounded-lg shadow overflow-hidden">
-              <thead className="bg-gray-200 text-black">
+              <thead className="bg-gray-200 text-black text-center">
                 <tr>
-                  <th className="py-3 px-4 text-left">Expiry Date</th>
-                  <th className="py-3 px-4 text-left">Expiry Alert</th>
-                  <th className="py-3 px-4 text-left">Expiry Alert</th>
-                  <th className="py-3 px-4 text-left">Expiry Alert</th>
-                  <th className="py-3 px-4 text-left">Expiry Alert</th>
-                  <th className="py-3 px-4 text-left">Expiry Alert</th>
+                  <th className="py-3 px-4 ">Item</th>
+                  <th className="py-3 px-4 ">Status</th>
+                  <th className="py-3 px-4 ">Current Stock</th>
+                  <th className="py-3 px-4 ">Recommended Stock</th>
+                  <th className="py-3 px-4 ">Action</th>
                 </tr>
               </thead>
-              <tbody className="text-gray-700">
+              <tbody className="text-gray-700 text-center">
                 {[
                   [
                     "Zero Waste Strategy",
@@ -64,7 +48,6 @@ const StockStatus = () => {
                     "Sustainab",
                     "Cost",
                     "Environm",
-                    "AI",
                   ],
                   [
                     "Real-time Alerts",
@@ -72,7 +55,6 @@ const StockStatus = () => {
                     "Dynamic",
                     "Efficient",
                     "Reducing",
-                    "Insights",
                   ],
                   [
                     "Stock Optimization",
@@ -80,7 +62,6 @@ const StockStatus = () => {
                     "Waste",
                     "Stocking",
                     "Inventory",
-                    "Smart",
                   ],
                   [
                     "Zero Food Waste Solutions",
@@ -88,22 +69,13 @@ const StockStatus = () => {
                     "Real-time",
                     "Stock",
                     "Inventory",
-                    "Inventory",
                   ],
-                  [
-                    "Data-driven Insights",
-                    "26",
-                    "Analytics",
-                    "28",
-                    "Data",
-                    "Perform",
-                  ],
+                  ["Data-driven Insights", "26", "Analytics", "28", "Data"],
                   [
                     "Search Functionality",
                     "20",
                     "Content",
                     "Keyword",
-                    "Search",
                     "Search",
                   ],
                   [
@@ -112,7 +84,6 @@ const StockStatus = () => {
                     "Advanced",
                     "Smart",
                     "Revolutio",
-                    "Efficient",
                   ],
                 ].map((row, index) => (
                   <tr key={index} className="border-t">
@@ -129,7 +100,7 @@ const StockStatus = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
               <div className="bg-white p-6 rounded-lg shadow">
                 <h2 className="text-xl font-bold mb-4 text-black">
-                  Smart Insights
+                  Food Category trend insight
                 </h2>
                 <div className="h-48 bg-gray-100 rounded-lg"></div>
               </div>
@@ -144,11 +115,13 @@ const StockStatus = () => {
 
           <div>
             <div className="bg-white p-6 rounded-lg shadow mb-6">
-              <h2 className="text-xl font-bold mb-4 text-black">
-                Business Profile
-              </h2>
+              <h2 className="text-xl font-bold mb-4 text-black">BigC</h2>
               <div className="flex items-center mb-4">
-                <div className="w-16 h-16 bg-gray-200 rounded-full"></div>
+                <img
+                  src="BigCLogo.jpg"
+                  alt="Profile"
+                  className="w-16 h-16 bg-gray-200 rounded-full"
+                />
                 <div className="ml-4">
                   <p className="text-gray-700 font-semibold">
                     Inventory Manager
