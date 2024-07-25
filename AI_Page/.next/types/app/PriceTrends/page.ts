@@ -1,8 +1,8 @@
 // File: /Users/suradet/Documents/AI-Inventory-Management-Platform-/AI_Page/src/app/PriceTrends/page.tsx
-import * as entry from '../../../../src/app/PriceTrends/page.js'
+import * as entry from '../../../../src/app/Alert/page.jsx'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../src/app/PriceTrends/page.js')
+type TEntry = typeof import('../../../../src/app/Alert/page.jsx')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{

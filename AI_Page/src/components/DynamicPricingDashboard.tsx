@@ -133,29 +133,6 @@ const DynamicPricingDashboard = () => {
             </div>
           </div>
         </div>
-
-        <div className="bg-white p-6 rounded-lg shadow mt-8">
-          <h2 className="text-xl font-bold text-black mb-4">
-            Price Adjustment Recommendations
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-black">
-            {[
-              { name: "Product 1", recommendedPrice: "$28.00" },
-              { name: "Product 2", recommendedPrice: "$50.00" },
-              { name: "Product 3", recommendedPrice: "$33.00" },
-            ].map((product, index) => (
-              <div
-                key={index}
-                className="flex justify-between items-center bg-gray-100 p-4 rounded"
-              >
-                <span>{product.name}</span>
-                <button className="bg-green-600 text-white py-2 px-4 rounded-full">
-                  Adjust to {product.recommendedPrice}
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );

@@ -42,47 +42,23 @@ const StockStatus = () => {
               </thead>
               <tbody className="text-gray-700 text-center">
                 {[
+                  ["Milk", "Low stock", "20", "35", "Environm"],
+                  ["Chicken", "Low stock", "25", "36", "Reducing"],
+                  ["Pastries", "Over stock", "34", "25", "Inventory"],
                   [
-                    "Zero Waste Strategy",
-                    "Low",
-                    "Sustainab",
-                    "Cost",
-                    "Environm",
-                  ],
-                  [
-                    "Real-time Alerts",
-                    "Predictive",
-                    "Dynamic",
-                    "Efficient",
-                    "Reducing",
-                  ],
-                  [
-                    "Stock Optimization",
-                    "Inventory",
-                    "Waste",
-                    "Stocking",
+                    "Beef",
+                    "Low stock",
+                    "45",
+                    "60",
                     "Inventory",
                   ],
+                  ["Yogurt", "Over stock", "60", "30", "Data"],
+                  ["Avocado", "Low stock", "10", "30", "Search"],
                   [
-                    "Zero Food Waste Solutions",
-                    "Inventory",
-                    "Real-time",
-                    "Stock",
-                    "Inventory",
-                  ],
-                  ["Data-driven Insights", "26", "Analytics", "28", "Data"],
-                  [
-                    "Search Functionality",
-                    "20",
-                    "Content",
-                    "Keyword",
-                    "Search",
-                  ],
-                  [
-                    "Innovative Solutions",
-                    "Cutting-",
-                    "Advanced",
-                    "Smart",
+                    "Pork",
+                    "Low stock",
+                    "80",
+                    "100",
                     "Revolutio",
                   ],
                 ].map((row, index) => (
@@ -134,33 +110,28 @@ const StockStatus = () => {
               </button>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow mb-6">
-              <h2 className="text-xl font-bold mb-4 text-black">
-                Stock Analysis
-              </h2>
-              <div className="space-y-4">
-                <div className="p-4 bg-gray-100 rounded-lg flex justify-between items-center">
-                  <div>
-                    <h3 className="text-lg font-bold text-black">
-                      Stock Forecasting
-                    </h3>
-                    <p className="text-gray-600">Real-time Monitoring</p>
+            <div>
+              <div className="bg-white p-4 rounded-lg shadow mb-6 text-black">
+                <h2 className="text-xl font-bold mb-4">
+                  Inventory Alerts and Recommendations
+                </h2>
+                <div className="grid grid-cols-1 gap-4">
+                  <div className="p-4 bg-gray-100 rounded-lg">
+                    <h3 className="font-bold">Low Stock Alerts</h3>
+                    <p>- Milk</p>
+                    <p>- Chicken</p>
+                    <p>- Bread</p>
                   </div>
-                  <span className="text-green-600 font-bold">Low</span>
-                </div>
-                <div className="p-4 bg-gray-100 rounded-lg flex justify-between items-center">
-                  <div>
-                    <h3 className="text-lg font-bold text-black">Product</h3>
-                    <p className="text-gray-600">Demand Prediction</p>
+                  <div className="p-4 bg-gray-100 rounded-lg">
+                    <h3 className="font-bold">High Stock Alerts</h3>
+                    <p>- Yogurt</p>
+                    <p>- Pastries</p>
                   </div>
-                  <span className="text-gray-600">Sales</span>
-                </div>
-                <div className="p-4 bg-gray-100 rounded-lg flex justify-between items-center">
-                  <div>
-                    <h3 className="text-lg font-bold text-black">Inventory</h3>
-                    <p className="text-gray-600">Waste Reduction</p>
+                  <div className="p-4 bg-gray-100 rounded-lg">
+                    <h3 className="font-bold">Restocking Recommendations</h3>
+                    <p>- Order more Milk</p>
+                    <p>- Order more Beef</p>
                   </div>
-                  <span className="text-gray-600">Efficient</span>
                 </div>
               </div>
             </div>
@@ -172,7 +143,7 @@ const StockStatus = () => {
               <div className="flex items-center">
                 <div className="w-16 h-16 bg-gray-200 rounded-lg"></div>
                 <div className="ml-4">
-                  <p className="font-bold text-black">Low Stock Alert</p>
+                  <p className="font-bold text-black">Milk</p>
                   <p className="text-gray-600">Tomorrow, 10:00 AM</p>
                   <p className="text-red-600">Urgent Restock Needed</p>
                 </div>

@@ -51,8 +51,8 @@ const Search = () => {
                     "
         >
           <MenuItem
-            label="Price Trends"
-            onClick={() => router.push("/PriceTrends")}
+            label="Alert"
+            onClick={() => router.push("/Alert")}
           />
         </div>
         <div

@@ -1,8 +1,6 @@
 {
-  "/not-found": "app/not-found.js",
-  "/page": "app/page.js",
-  "/jobs/page": "app/jobs/page.js",
-  "/StockStatus/page": "app/StockStatus/page.js",
+  "/DynamicPricing/page": "app/DynamicPricing/page.js",
   "/PredictiveAnalytics/page": "app/PredictiveAnalytics/page.js",
-  "/PriceTrends/page": "app/PriceTrends/page.js"
+  "/StockStatus/page": "app/StockStatus/page.js",
+  "/Alert/page": "app/Alert/page.js"
 }
