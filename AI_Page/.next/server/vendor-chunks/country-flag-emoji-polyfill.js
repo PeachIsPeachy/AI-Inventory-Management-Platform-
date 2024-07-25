@@ -1,0 +1,25 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+exports.id = "vendor-chunks/country-flag-emoji-polyfill";
+exports.ids = ["vendor-chunks/country-flag-emoji-polyfill"];
+exports.modules = {
+
+/***/ "(ssr)/./node_modules/country-flag-emoji-polyfill/dist/index.mjs":
+/*!*****************************************************************!*\
+  !*** ./node_modules/country-flag-emoji-polyfill/dist/index.mjs ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   polyfillCountryFlagEmojis: () => (/* binding */ f)\n/* harmony export */ });\nconst r='\"Twemoji Mozilla\",\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\",\"Noto Color Emoji\",\"EmojiOne Color\",\"Android Emoji\",sans-serif';function a(){const o=document.createElement(\"canvas\");o.width=o.height=1;const t=o.getContext(\"2d\",{willReadFrequently:!0});return t.textBaseline=\"top\",t.font=`100px ${r}`,t.scale(.01,.01),t}function i(o,t,e){return o.clearRect(0,0,100,100),o.fillStyle=e,o.fillText(t,0,0),o.getImageData(0,0,1,1).data.join(\",\")}function l(o){const t=a(),e=i(t,o,\"#fff\"),n=i(t,o,\"#000\");return n===e&&!n.startsWith(\"0,0,0,\")}function f(o=\"Twemoji Country Flags\",t=\"https://cdn.jsdelivr.net/npm/country-flag-emoji-polyfill@0.1/dist/TwemojiCountryFlags.woff2\"){if(typeof window<\"u\"&&l(\"\\u{1F60A}\")&&!l(\"\\u{1F1E8}\\u{1F1ED}\")){const e=document.createElement(\"style\");return e.textContent=`@font-face {\n      font-family: \"${o}\";\n      unicode-range: U+1F1E6-1F1FF, U+1F3F4, U+E0062-E0063, U+E0065, U+E0067,\n        U+E006C, U+E006E, U+E0073-E0074, U+E0077, U+E007F;\n      src: url('${t}') format('woff2');\n      font-display: swap;\n    }`,document.head.appendChild(e),!0}return!1}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9ub2RlX21vZHVsZXMvY291bnRyeS1mbGFnLWVtb2ppLXBvbHlmaWxsL2Rpc3QvaW5kZXgubWpzIiwibWFwcGluZ3MiOiI7Ozs7QUFBQSxrSkFBa0osYUFBYSx5Q0FBeUMsbUJBQW1CLDJCQUEyQixzQkFBc0IsRUFBRSw0Q0FBNEMsRUFBRSxxQkFBcUIsa0JBQWtCLHVHQUF1RyxjQUFjLDRDQUE0QyxzQ0FBc0Msc0lBQXNJLDRCQUE0QixNQUFNLFdBQVcsTUFBTSxHQUFHLE1BQU0sSUFBSSx3Q0FBd0M7QUFDeHhCLHNCQUFzQixFQUFFO0FBQ3hCO0FBQ0E7QUFDQSxrQkFBa0IsRUFBRTtBQUNwQjtBQUNBLEtBQUssa0NBQWtDLFNBQWdEIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vdmFjY2luZS1ib29rLWFwcC8uL25vZGVfbW9kdWxlcy9jb3VudHJ5LWZsYWctZW1vamktcG9seWZpbGwvZGlzdC9pbmRleC5tanM/YjQ5ZSJdLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCByPSdcIlR3ZW1vamkgTW96aWxsYVwiLFwiQXBwbGUgQ29sb3IgRW1vamlcIixcIlNlZ29lIFVJIEVtb2ppXCIsXCJTZWdvZSBVSSBTeW1ib2xcIixcIk5vdG8gQ29sb3IgRW1vamlcIixcIkVtb2ppT25lIENvbG9yXCIsXCJBbmRyb2lkIEVtb2ppXCIsc2Fucy1zZXJpZic7ZnVuY3Rpb24gYSgpe2NvbnN0IG89ZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImNhbnZhc1wiKTtvLndpZHRoPW8uaGVpZ2h0PTE7Y29uc3QgdD1vLmdldENvbnRleHQoXCIyZFwiLHt3aWxsUmVhZEZyZXF1ZW50bHk6ITB9KTtyZXR1cm4gdC50ZXh0QmFzZWxpbmU9XCJ0b3BcIix0LmZvbnQ9YDEwMHB4ICR7cn1gLHQuc2NhbGUoLjAxLC4wMSksdH1mdW5jdGlvbiBpKG8sdCxlKXtyZXR1cm4gby5jbGVhclJlY3QoMCwwLDEwMCwxMDApLG8uZmlsbFN0eWxlPWUsby5maWxsVGV4dCh0LDAsMCksby5nZXRJbWFnZURhdGEoMCwwLDEsMSkuZGF0YS5qb2luKFwiLFwiKX1mdW5jdGlvbiBsKG8pe2NvbnN0IHQ9YSgpLGU9aSh0LG8sXCIjZmZmXCIpLG49aSh0LG8sXCIjMDAwXCIpO3JldHVybiBuPT09ZSYmIW4uc3RhcnRzV2l0aChcIjAsMCwwLFwiKX1mdW5jdGlvbiBmKG89XCJUd2Vtb2ppIENvdW50cnkgRmxhZ3NcIix0PVwiaHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L25wbS9jb3VudHJ5LWZsYWctZW1vamktcG9seWZpbGxAMC4xL2Rpc3QvVHdlbW9qaUNvdW50cnlGbGFncy53b2ZmMlwiKXtpZih0eXBlb2Ygd2luZG93PFwidVwiJiZsKFwiXFx1ezFGNjBBfVwiKSYmIWwoXCJcXHV7MUYxRTh9XFx1ezFGMUVEfVwiKSl7Y29uc3QgZT1kb2N1bWVudC5jcmVhdGVFbGVtZW50KFwic3R5bGVcIik7cmV0dXJuIGUudGV4dENvbnRlbnQ9YEBmb250LWZhY2Uge1xuICAgICAgZm9udC1mYW1pbHk6IFwiJHtvfVwiO1xuICAgICAgdW5pY29kZS1yYW5nZTogVSsxRjFFNi0xRjFGRiwgVSsxRjNGNCwgVStFMDA2Mi1FMDA2MywgVStFMDA2NSwgVStFMDA2NyxcbiAgICAgICAgVStFMDA2QywgVStFMDA2RSwgVStFMDA3My1FMDA3NCwgVStFMDA3NywgVStFMDA3RjtcbiAgICAgIHNyYzogdXJsKCcke3R9JykgZm9ybWF0KCd3b2ZmMicpO1xuICAgICAgZm9udC1kaXNwbGF5OiBzd2FwO1xuICAgIH1gLGRvY3VtZW50LmhlYWQuYXBwZW5kQ2hpbGQoZSksITB9cmV0dXJuITF9ZXhwb3J0e2YgYXMgcG9seWZpbGxDb3VudHJ5RmxhZ0Vtb2ppc307XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/country-flag-emoji-polyfill/dist/index.mjs\n");
+
+/***/ })
+
+};
+;

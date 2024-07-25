@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/suradet/Documents/AI-Inventory-Management-Platform-/AI_Page/src/app/layout\":[\"static/media/21ed5661b47f7f6d-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"

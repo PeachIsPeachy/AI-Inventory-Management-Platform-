@@ -1,0 +1,10 @@
+{
+  "/not-found": "app/not-found.js",
+  "/page": "app/page.js",
+  "/DynamicPricing/page": "app/DynamicPricing/page.js",
+  "/jobs/page": "app/jobs/page.js",
+  "/StockStatus/page": "app/StockStatus/page.js",
+  "/PredictiveAnalytics/page": "app/PredictiveAnalytics/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/PriceTrends/page": "app/PriceTrends/page.js"
+}
